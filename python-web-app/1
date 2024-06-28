@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-webapp-k8s
+  labels:
+    app: python-webapp-k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-webapp-k8s
+  template:
+    metadata:
+      labels:
+        app: python-webapp-k8s
+    spec:
+      containers:
+      - name: python-webapp-k8s
+        image: python-webapp-k8s:v1
+        ports:
+        - containerPort: 80
+
